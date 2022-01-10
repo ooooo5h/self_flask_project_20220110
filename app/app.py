@@ -1,4 +1,5 @@
 from flask import Flask
+from flask.json import jsonify
 from flask.templating import render_template
 
 def create_app():
@@ -30,6 +31,8 @@ def create_app():
         test_dict['price'] = 3500,
         test_dict['store_name'] = '맛있는 빵집',
         test_dict['is_open'] = True
+        
+        return jsonify(test_dict)
     
     # 이 서버를 사용하도록 결과로 리턴하는 부분
     return app
