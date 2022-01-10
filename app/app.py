@@ -34,5 +34,26 @@ def create_app():
         
         return jsonify(test_dict)
     
+    
+    @app.route("/json2")
+    def json_test2():
+        hello_dict = {}
+        hello_dict['korean'] = '배고파요'
+        hello_dict['english'] = 'i am hungry'
+        
+        return hello_dict
+    
+    @app.route("/json3")
+    def json_test3():
+        user_dict = {}
+        user_dict['name'] = '전은형'
+        user_dict['address'] = '서울시 중랑구'
+        
+        return {
+            'code' : 200,
+            'message' : '성공',
+            'data' : user_dict
+        }
+    
     # 이 서버를 사용하도록 결과로 리턴하는 부분
     return app
