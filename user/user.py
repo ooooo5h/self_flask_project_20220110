@@ -7,3 +7,17 @@ def user_test():
         'name' : '전은형',
         'birth_year' : 1991,
     }
+    
+    
+def login_test(id, pw):
+    
+    if id == 'admin' and pw =='qwer':
+        return{
+            'code' : 200,
+            'message' : 'login OK',
+        }
+    else :
+        return {
+            'code' : 400,
+            'message' : 'fail',
+        }
