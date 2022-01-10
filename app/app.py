@@ -1,5 +1,4 @@
-from flask import Flask
-from flask.json import jsonify
+from flask import Flask, request
 from flask.templating import render_template
 
 from user.user import user_test, login_test
@@ -24,7 +23,15 @@ def create_app():
         
     @app.route('/login_test')
     def login_01():
-        return login_test('admin', 'qwer')    
+        
+        # 외부에서 보내주는 파라미터를 받아서 확인해보자
+        params = request.args.to_dict()
+        print(f'전달받은 파라미터 : {params}')
+        
+        id = params['login_id']
+        pw = params['pw']
+        
+        return login_test(id, pw)
 
     # 이 서버를 사용하도록 결과로 리턴하는 부분
     return app
