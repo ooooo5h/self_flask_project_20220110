@@ -1,4 +1,5 @@
 from flask import Flask
+from flask.templating import render_template
 
 def create_app():
     # 플라스크 서버를 변수에 담았음
@@ -13,6 +14,11 @@ def create_app():
     @app.route("/test")
     def test():
         return "여긴 테스트"
+    
+    
+    @app.route("/web")
+    def web_test():
+        return render_template('web_test.html')
     
     # 이 서버를 사용하도록 결과로 리턴하는 부분
     return app
