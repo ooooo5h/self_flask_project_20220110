@@ -6,8 +6,13 @@ def create_app():
     
     # 서버에 대한 세팅 진행하는 부분
     @app.route("/")
-    def test():
+    def home():
         return "<h1>나혼자 도전</h1>"
+    
+    
+    @app.route("/test")
+    def test():
+        return "여긴 테스트"
     
     # 이 서버를 사용하도록 결과로 리턴하는 부분
     return app
