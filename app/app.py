@@ -2,6 +2,8 @@ from flask import Flask
 from flask.json import jsonify
 from flask.templating import render_template
 
+from user.user import user_test
+
 def create_app():
     # 플라스크 서버를 변수에 담았음
     app = Flask(__name__)
@@ -55,5 +57,10 @@ def create_app():
             'data' : user_dict
         }
     
+    
+    @app.route('/module_test')
+    def module_test():
+        return user_test()
+
     # 이 서버를 사용하도록 결과로 리턴하는 부분
     return app
